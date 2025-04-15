@@ -4,10 +4,25 @@
 <head>
     <title>Take Screenshot</title>
     <style>
+        :root {
+            --background-color: #f9f9f9;
+            --text-color: #333;
+            --text-hover-color: #e1e1e1;
+            --text-hover-color2: #242;
+            --buton-bg-color-disabled: #ddd;
+            --button-color: #007BFF;
+            --button-hover-color: #0056b3;
+            --button-hover-color2: #4da3ff;
+            --button-text-color: #fff;
+        }
+
         body {
-            font-family: sans-serif;
+            /* font-family: sans-serif; */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 10px;
-            width: 300px;
+            width: 320px;
+            background-color: var(--background-color);
+            border-radius: 50px;
         }
 
         #screenshot {
@@ -22,6 +37,20 @@
             gap: 5px;
         }
 
+        button {
+            padding: 8px 12px;
+            font-size: 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        button:disabled {
+            background-color: var(--buton-bg-color-disabled);
+            cursor: not-allowed;
+        }
+
         #popupHeader {
             display: flex;
             justify-content: flex-end;
@@ -33,6 +62,31 @@
             font-size: 16px;
             cursor: pointer;
             color: #666;
+        }
+
+        #screenshotBtn:hover:not(:disabled) {
+            background-color: #0056b3;
+            color: var(--text-hover-color);
+            font-weight: bold;
+        }
+
+
+        #downloadBtn:hover:not(:disabled) {
+            background-color: var(--button-hover-color2);
+            color: var(--text-hover-color2);
+            font-weight: bold;
+        }
+
+        #thumbBtn:hover:not(:disabled) {
+            background-color: var(--button-hover-color2);
+            color: var(--text-hover-color2);
+            font-weight: bold;
+        }
+
+        #copyBtn:hover:not(:disabled) {
+            background-color: var(--button-hover-color2);
+            color: var(--text-hover-color2);
+            font-weight: bold;
         }
 
         #closeBtn:hover {
@@ -49,7 +103,7 @@
     <div class="buttons">
         <button id="downloadBtn" disabled>Download Image</button>
         <button id="thumbBtn" disabled>Download Thumbnail</button>
-        <button id="copyBtn">Copy to Clipboard</button>
+        <button id="copyBtn" disabled>Copy to Clipboard</button>
     </div>
     <img id="screenshot" src="" alt="Screenshot will appear here" />
     <script type="module" src="popup.js"></script>

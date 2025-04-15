@@ -13,6 +13,7 @@ function captureScreenshot() {
         // Enable buttons
         document.getElementById('downloadBtn').disabled = false;
         document.getElementById('thumbBtn').disabled = false;
+        document.getElementById('copyBtn').disabled = false;
 
         copyToClipboard();
     });
