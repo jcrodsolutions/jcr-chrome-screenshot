@@ -5,6 +5,7 @@
     "description": "Takes a screenshot of the current viewport.",
     "permissions": [
         "contextMenus",
+        "clipboardWrite",
         "downloads",
         "tabs",
         "activeTab",
