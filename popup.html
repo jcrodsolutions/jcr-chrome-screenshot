@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Take Screenshot</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 10px;
+            width: 300px;
+        }
+
+        #screenshot {
+            max-width: 100%;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        #popupHeader {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #closeBtn {
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        #closeBtn:hover {
+            color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="popupHeader">
+        <button id="closeBtn" title="Close">X</button>
+    </div>
+    <button id="screenshotBtn">Capture Viewport</button>
+    <div class="buttons">
+        <button id="downloadBtn" disabled>Download Image</button>
+        <button id="thumbBtn" disabled>Download Thumbnail</button>
+    </div>
+    <img id="screenshot" src="" alt="Screenshot will appear here" />
+    <script type="module" src="popup.js"></script>
+</body>
+
+</html>
