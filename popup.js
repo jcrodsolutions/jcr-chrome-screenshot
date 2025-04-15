@@ -13,13 +13,32 @@ function captureScreenshot() {
         // Enable buttons
         document.getElementById('downloadBtn').disabled = false;
         document.getElementById('thumbBtn').disabled = false;
+
+        copyToClipboard();
     });
+}
+
+function copyToClipboard() {
+    if (!capturedDataUrl) return;
+
+    fetch(capturedDataUrl)
+        .then(res => res.blob())
+        .then(blob => {
+            const item = new ClipboardItem({ 'image/png': blob });
+            navigator.clipboard.write([item])
+                .then(() => {
+                    console.log('Image copied to clipboard');
+                })
+                .catch(err => {
+                    console.error('Failed to copy image: ', err);
+                });
+        });
 }
 
 // Trigger the screenshot as soon as the popup is loaded
 document.addEventListener('DOMContentLoaded', () => {
     captureScreenshot();
-  });
+});
 
 document.getElementById('screenshotBtn').addEventListener('click', () => {
     captureScreenshot();
@@ -55,6 +74,10 @@ document.getElementById('thumbBtn').addEventListener('click', () => {
         link.click();
     };
     img.src = capturedDataUrl;
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+    copyToClipboard();
 });
 
 document.getElementById('closeBtn').addEventListener('click', () => {
