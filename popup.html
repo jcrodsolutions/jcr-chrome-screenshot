@@ -11,6 +11,7 @@
         :root {
             --background-color: #f9f9f9;
             --color-black: #1f1f1f;
+            --color-gray: #666;
             --text-color: #222;
             --text-hover-color: #e1e1e1;
             --text-hover-color2: #242;
@@ -108,7 +109,6 @@
         }
 
         #githubLink {
-            /* position: absolute; */
             display: flex;
             justify-content: flex-end;
             font-size: 12px;
@@ -117,14 +117,30 @@
 
         #githubLink a {
             text-decoration: none;
-            color: #666;
+            color: var(--color-gray);
             display: flex;
             align-items: center;
             gap: 4px;
         }
 
         #githubLink a:hover {
-            color: #000;
+            color: var(--color-gray);
+        }
+
+        #githubLink a .hover-logo {
+            align-items: center;
+            gap: 6px;
+            opacity: 0;
+        }
+
+        #githubLink a:hover .normal-logo {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        #githubLink a:hover .hover-logo {
+            opacity: 1;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -148,7 +164,14 @@
 
     <div id="githubLink">
         <a href="https://github.com/jcrodsolutions/jcr-chrome-screenshot" target="_blank" title="View on GitHub">
-            <i class="fab fa-github"></i> View on GitHub
+            <span class="normal-logo">
+                <i class="fab fa-github"></i>
+                <span class="text">View on GitHub</span>
+            </span>
+            <span class="hover-logo">
+                <img src="images/jcrodsolutions_logo.svg" alt="JcRod Logo" width="16" height="16" />
+                <span>JcRod Solutions</span>
+            </span>
         </a>
     </div>
 
