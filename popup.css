@@ -1,0 +1,158 @@
+:root {
+    --background-color: #f9f9f9;
+    --color-black: #1f1f1f;
+    --color-gray: #666;
+    --color-light-gray: #999;
+    --text-color: #222;
+    --text-hover-color: #e1e1e1;
+    --text-hover-color2: #242;
+    --buton-bg-color-disabled: #ddd;
+    --button-color: #007BFF;
+    --button-hover-color: #0056b3;
+    --button-hover-color2: #ddd;
+    --button-text-color: #007BFF;
+}
+
+body {
+    /* font-family: sans-serif; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    width: 320px;
+    background-color: var(--background-color);
+    border-radius: 50px;
+}
+
+#screenshot {
+    max-width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+button {
+    color: var(--button-text-color);
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+button:disabled {
+    background-color: var(--buton-bg-color-disabled);
+    cursor: not-allowed;
+}
+
+#popupHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+#closeBtn {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+#screenshotBtn:hover:not(:disabled) {
+    background-color: var(--button-hover-color);
+    color: var(--text-hover-color);
+    font-weight: bold;
+}
+
+
+/* #downloadBtn:hover:not(:disabled) {
+background-color: var(--button-hover-color2);
+color: var(--text-hover-color2);
+font-weight: bold;
+}
+
+#thumbBtn:hover:not(:disabled) {
+background-color: var(--button-hover-color2);
+color: var(--text-hover-color2);
+font-weight: bold;
+}
+
+#copyBtn:hover:not(:disabled) {
+background-color: var(--button-hover-color2);
+color: var(--text-hover-color2);
+font-weight: bold;
+}*/
+
+button.actionButton:hover:not(:disabled) {
+    background-color: var(--button-hover-color2);
+    color: var(--text-hover-color2);
+    font-weight: bold;
+}
+
+#closeBtn:hover {
+    color: var(--color-black);
+}
+
+#githubLink {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+    margin-top: 0.25rem;
+    padding-right: 1px;
+    overflow: hidden;
+}
+
+#githubLink a {
+    text-decoration: none;
+    color: var(--color-gray);
+    display: inline-block;
+    position: relative;
+    width: 110px;
+    height: 20px;
+    text-align: right;
+}
+
+#githubLink a .normal-logo,
+#githubLink a .hover-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+#githubLink a .hover-logo {
+    opacity: 0;
+}
+
+/* On hover: fade between logos */
+#githubLink a:hover .normal-logo {
+    opacity: 0;
+}
+
+#githubLink a:hover .hover-logo {
+    opacity: 1;
+}
+
+#versionTag {
+    position: absolute;
+    bottom: 8px;
+    left: 12px;
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+#versionTag a {
+    text-decoration: none;
+    color: var(--color-light-gray) !important;
+    cursor: pointer;
+}
