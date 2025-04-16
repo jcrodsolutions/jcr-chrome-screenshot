@@ -3,19 +3,22 @@
 
 <head>
     <title>Take Screenshot</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         :root {
             --background-color: #f9f9f9;
-            --text-color: #333;
+            --color-black: #1f1f1f;
+            --text-color: #222;
             --text-hover-color: #e1e1e1;
             --text-hover-color2: #242;
             --buton-bg-color-disabled: #ddd;
             --button-color: #007BFF;
             --button-hover-color: #0056b3;
-            --button-hover-color2: #4da3ff;
-            --button-text-color: #fff;
+            --button-hover-color2: #ddd;
+            --button-text-color: #007BFF;
         }
 
         body {
@@ -40,6 +43,7 @@
         }
 
         button {
+            color: var(--button-text-color);
             padding: 8px 12px;
             font-size: 14px;
             border: none;
@@ -55,7 +59,9 @@
 
         #popupHeader {
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
         }
 
         #closeBtn {
@@ -63,17 +69,17 @@
             border: none;
             font-size: 16px;
             cursor: pointer;
-            color: #666;
+            color: var(--text-color);
         }
 
         #screenshotBtn:hover:not(:disabled) {
-            background-color: #0056b3;
+            background-color: var(--button-hover-color);
             color: var(--text-hover-color);
             font-weight: bold;
         }
 
 
-        #downloadBtn:hover:not(:disabled) {
+        /* #downloadBtn:hover:not(:disabled) {
             background-color: var(--button-hover-color2);
             color: var(--text-hover-color2);
             font-weight: bold;
@@ -89,9 +95,35 @@
             background-color: var(--button-hover-color2);
             color: var(--text-hover-color2);
             font-weight: bold;
+        }*/
+
+        button.actionButton:hover:not(:disabled) {
+            background-color: var(--button-hover-color2);
+            color: var(--text-hover-color2);
+            font-weight: bold;
         }
 
         #closeBtn:hover {
+            color: var(--color-black);
+        }
+
+        #githubLink {
+            /* position: absolute; */
+            display: flex;
+            justify-content: flex-end;
+            font-size: 12px;
+            margin-top: 0.5rem;
+        }
+
+        #githubLink a {
+            text-decoration: none;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        #githubLink a:hover {
             color: #000;
         }
     </style>
@@ -99,15 +131,27 @@
 
 <body>
     <div id="popupHeader">
+        <button id="screenshotBtn" title="Capture Viewport"><i class="fas fa-camera"></i> <span
+                class="btn-label">Capture Viewport</span></button>
         <button id="closeBtn" title="Close"><i class="fas fa-times"></i></button>
     </div>
-    <button id="screenshotBtn">Capture Viewport</button>
     <div class="buttons">
-        <button id="downloadBtn" title="Download Image" disabled><i class="fas fa-download"></i></button>
-        <button id="thumbBtn" title="Download Thumbnail" disabled><i class="fas fa-image"></i></button>
-        <button id="copyBtn" title="Copy to Clipboard" disabled><i class="fas fa-copy"></i></button>
+        <button id="downloadBtn" title="Download Image" class="actionButton" disabled><i
+                class="fas fa-download"></i></button>
+        <button id="thumbBtn" title="Download Thumbnail" class="actionButton" disabled><i
+                class="fas fa-image"></i></button>
+        <button id="copyBtn" title="Copy to Clipboard" class="actionButton" disabled><i
+                class="fas fa-copy"></i></button>
     </div>
     <img id="screenshot" src="" alt="Screenshot will appear here" />
+
+
+    <div id="githubLink">
+        <a href="https://github.com/jcrodsolutions/jcr-chrome-screenshot" target="_blank" title="View on GitHub">
+            <i class="fab fa-github"></i> View on GitHub
+        </a>
+    </div>
+
     <script type="module" src="popup.js"></script>
 </body>
 
